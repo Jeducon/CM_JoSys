@@ -163,7 +163,7 @@ def plot_boundary_and_region():
     plt.axhline(0, lw=0.5); plt.axvline(0, lw=0.5)
     plt.gca().set_aspect('equal', adjustable='box')
     plt.xlabel("u = Re(σ)"); plt.ylabel("v = Im(σ)")
-    plt.title("AM3: область абсолютної стійкості (заповнена) і межа")
+    plt.title("AM3: область абсолютної стійкості")
     plt.grid(True, ls='--', lw=0.3)
     plt.show()
 
@@ -174,12 +174,15 @@ if __name__ == "__main__":
         h0  = float(input("h0 : "))
     except Exception:
         eps, h0 = 1e-5, 0.05
-        print(f"Використовую eps={eps}, h0={h0} (за замовчуванням).")
+        print(f"Using eps={eps}, h0={h0}.")
     solve_task(eps, h0, T=1.0)
 
     
-    print("\nТаблиця σ(θ)=u(θ)+iv(θ):")
+    print("\nTable σ(θ)=u(θ)+iv(θ):")
     tbl = table_sigma(36)  
     for i in range(min(10, len(tbl))):
         th,u,v = tbl[i]
         print(f"θ={th:8.5f}  u={u:10.6f}  v={v:10.6f}")
+
+plot_boundary_and_region()
+    
