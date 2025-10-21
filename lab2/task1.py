@@ -2,6 +2,7 @@ import math
 import sys
 import numpy as np
 import matplotlib.pyplot as plt
+import cmath
 
 def f_rhs(t, x, y):
     return (t / y, -t / x)
@@ -115,7 +116,7 @@ def solve_task(eps=1e-5, h0=0.05, T=1.0):
 
 
 def am3_sigma(theta):
-    import cmath
+    
     rho = cmath.exp(1j*theta)
     alpha = rho*rho - rho
     beta  = (5.0/12.0)*rho*rho + (8.0/12.0)*rho - (1.0/12.0)
@@ -123,7 +124,7 @@ def am3_sigma(theta):
     return (z.real, z.imag)
 
 def table_sigma(n=360):
-    import numpy as np
+    
     th = np.linspace(0.0, 2.0*np.pi, n+1)
     rows = []
     for t in th:
@@ -159,11 +160,11 @@ def plot_boundary_and_region():
 
     plt.figure(figsize=(7,6))
     plt.contourf(U, V, M, levels=[-0.5,0.5,1.5], alpha=0.75)
-    plt.plot(uu, vv, lw=1.3)                 # межа σ(θ)
+    plt.plot(uu, vv, lw=1.3)                 
     plt.axhline(0, lw=0.5); plt.axvline(0, lw=0.5)
     plt.gca().set_aspect('equal', adjustable='box')
     plt.xlabel("u = Re(σ)"); plt.ylabel("v = Im(σ)")
-    plt.title("AM3: область абсолютної стійкості")
+    plt.title("AM3: Area of absolute stiykist")
     plt.grid(True, ls='--', lw=0.3)
     plt.show()
 
