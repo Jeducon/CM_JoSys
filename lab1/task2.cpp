@@ -62,7 +62,7 @@ int main() {
     }
 
     cout<<"h_opt = "<<h<<"\n\n";
-    cout<<fixed<<setprecision(8);
+    cout<<fixed<<setprecision(10);
     cout<<"   t        x           y       exact_x     exact_y     err_x      err_y\n";
 
     auto pr=[&](double tt,double xx,double yy){

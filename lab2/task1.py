@@ -166,6 +166,13 @@ def plot_boundary_and_region():
     plt.xlabel("u = Re(σ)"); plt.ylabel("v = Im(σ)")
     plt.title("AM3: Area of absolute stiykist")
     plt.grid(True, ls='--', lw=0.3)
+
+    rho = 0.5
+    alpha = rho*rho - rho
+    beta = (5.0/12.0)*rho*rho + (8.0/12.0)*rho - (1.0/12.0)
+    z = alpha / beta
+    plt.scatter(z.real, z.imag, color='red', s=60, label='ρ = 0.5')
+    plt.legend()
     plt.show()
 
 
